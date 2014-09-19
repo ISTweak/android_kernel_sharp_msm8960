@@ -1,0 +1,13 @@
+#
+# battely control configuration
+#
+
+menu "Battely Control"
+
+comment "Battely Control Driver"
+
+config PM_WIRELESS_CHARGE
+	bool "SHARP Wireless Charger support"
+	default n
+
+endmenu

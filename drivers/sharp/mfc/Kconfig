@@ -1,0 +1,23 @@
+#
+# FeliCa device configuration
+#
+
+menu "FeliCa driver"
+
+comment "SHARP FeliCa device drivers"
+
+config SHFELICA
+	bool "FeliCa device drivers"
+	depends on SERIAL_MSM_HSL && I2C
+	default y
+	help
+	  Enable FeliCa driver.
+
+config SHSNFC
+	bool "NFC device drivers"
+	depends on SHFELICA
+	default n
+	help
+	  Enable NFC driver.
+
+endmenu

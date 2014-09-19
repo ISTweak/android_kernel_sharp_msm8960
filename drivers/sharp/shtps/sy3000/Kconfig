@@ -1,0 +1,42 @@
+#
+# Sharp Touchscreen configuration
+#
+
+if TOUCHSCREEN_SHTPS
+	config SHTPS_SY3X00_DEV
+		tristate "SY3x00 Device"
+		default n
+		depends on TOUCHSCREEN_SHTPS
+
+	config SHTPS_SY3000_TM2187_001
+		tristate "SY3000 TM2187_001"
+		default n
+		depends on SHTPS_SY3X00_DEV
+
+	if SHTPS_SY3000_TM2187_001
+		source "drivers/sharp/shtps/sy3000/tm2187-001/Kconfig"
+	endif # SHTPS_SY3000_TM2187_001
+
+
+	config SHTPS_SY3000_TM2153_001
+		tristate "SY3000 TM2153-001"
+		default n
+		depends on SHTPS_SY3X00_DEV
+
+	if SHTPS_SY3000_TM2153_001
+		source "drivers/sharp/shtps/sy3000/tm2153-001/Kconfig"
+	endif # SHTPS_SY3000_TM2153_001
+
+
+	config SHTPS_SY3000_TM2215_001
+		tristate "SY3000 TM2215-001"
+		default n
+		depends on SHTPS_SY3X00_DEV
+
+	if SHTPS_SY3000_TM2215_001
+		source "drivers/sharp/shtps/sy3000/tm2215-001/Kconfig"
+	endif # SHTPS_SY3000_TM2215_001
+
+
+
+endif # TOUCHSCREEN_SHTPS

@@ -1,0 +1,55 @@
+#
+# Sharp Touchscreen configuration
+#
+
+menuconfig TOUCHSCREEN_SHTPS
+	bool "sharp touchscreens"
+	default y
+
+if TOUCHSCREEN_SHTPS
+
+	config SHTPS_TMA4XX_DEV
+		tristate "TMA4XX Device"
+		default n
+		depends on TOUCHSCREEN_SHTPS
+
+	config SHTPS_TMA4XX_TMA443
+		tristate "TMA4XX TMA443"
+		default n
+		depends on SHTPS_TMA4XX_DEV
+
+	if SHTPS_TMA4XX_TMA443
+		source "drivers/sharp/shtps/tma4xx/Kconfig"
+	endif # SHTPS_TMA4XX_TMA443
+
+	config SHTPS_TMA4XX_TMA463_001
+		tristate "TMA4XX TMA463-001"
+		default n
+		depends on SHTPS_TMA4XX_DEV
+
+	if SHTPS_TMA4XX_TMA463_001
+		source "drivers/sharp/shtps/tma4xx/tma463-001/Kconfig"
+	endif # SHTPS_TMA4XX_TMA463_001
+
+	config SHTPS_TMA4XX_TMA463_002
+		tristate "TMA4XX TMA463-002"
+		default n
+		depends on SHTPS_TMA4XX_DEV
+
+	if SHTPS_TMA4XX_TMA463_002
+		source "drivers/sharp/shtps/tma4xx/tma463-002/Kconfig"
+	endif # SHTPS_TMA4XX_TMA463_002
+
+	config SHTPS_TMA4XX_TMA463_003
+		tristate "TMA4XX TMA463-003"
+		default n
+		depends on SHTPS_TMA4XX_DEV
+
+	if SHTPS_TMA4XX_TMA463_003
+		source "drivers/sharp/shtps/tma4xx/tma463-003/Kconfig"
+	endif # SHTPS_TMA4XX_TMA463_003
+
+
+	source "drivers/sharp/shtps/sy3000/Kconfig"
+
+endif # TOUCHSCREEN_SHTPS

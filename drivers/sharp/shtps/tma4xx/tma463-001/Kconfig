@@ -1,0 +1,13 @@
+#
+# Sharp Touchscreen tma463 configuration
+#
+
+config SHTPS_TMA4XX_FACETOUCH_DETECT
+	bool "SHTPS_TMA4XX_FACETOUCH_DETECT"
+	default n
+	depends on SHTPS_TMA4XX_TMA463_001
+
+config SHTPS_TMA4XX_FACETOUCH_OFF_DETECT
+	bool "SHTPS_TMA4XX_FACETOUCH_OFF_DETECT"
+	default n
+	depends on SHTPS_TMA4XX_TMA463_001
